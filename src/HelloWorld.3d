@@ -7,3 +7,17 @@ entrypoint typedef struct _smoker {
   UINT32 age { age >= 21 };
   UINT8 cigarettesConsumed;
 } smoker;
+
+// This comment should be present in the generated source file - but does not
+entrypoint typedef struct _BF {
+  UINT32 x : 6;
+  UINT32 y : 10 { y <= 900 };
+  UINT32 z : 16 { y + z <= 60000 };
+} BF;
+
+entrypoint typedef struct _boundedSum (UINT32 bound) {
+  UINT32 left;
+  UINT32 right { left <= bound && right <= bound - left };
+} boundedSum;
+
+// TODO - arrays and what can be done with them
